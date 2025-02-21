@@ -19,6 +19,23 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* COLORS */
+.bg-secondary-color {
+  @apply bg-[#f6f6f6];
+}
+
+.text-secondary-color {
+  @apply text-[#cecece];
+}
+
+.tertiary-color {
+  @apply bg-[#e0fe67];
+}
+
+.cta-color {
+  @apply bg-[#1b3a34];
+}
+
 /* PADDING */
 .padding {
   @apply p-4 lg:p-6;
