@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+
 export default function Home() {
   return (
     <div>
@@ -12,8 +14,8 @@ export default function Home() {
         </p>
 
         <div className="flexbox-center flex-col md:flex-row  gap-4">
-          <button className="cta-btn bg-black text-white">Get Started</button>
-          <button className="cta-btn">Get Started</button>
+          <Button className="cta-btn">Get Started</Button>
+          <Button className="cta-btn">Get Started</Button>
         </div>
       </section>
 
@@ -21,8 +23,6 @@ export default function Home() {
         <section className="section-size p-4 ">
           <div className="bg-white padding rounded-xl h-full max-width">
             <h1 className=" hero-font">Why Choose Us?</h1>
-
-            
           </div>
         </section>
 
