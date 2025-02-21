@@ -18,3 +18,27 @@ body {
   color: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* PADDING */
+.padding {
+  @apply p-4 lg:p-6;
+}
+
+/* FLEXBOX */
+.flexbox-between {
+  @apply flex justify-between items-center;
+}
+
+.flexbox-center {
+  @apply flex justify-center items-center;
+}
+
+/* FONT */
+.hero-font {
+  @apply text-[8vw] sm:text-[48px] md:text-[56px] lg:text-[64px] font-bold;
+}
+
+/* SIZING */
+.section-size {
+  @apply h-[250px] lg:h-[350px];
+}
