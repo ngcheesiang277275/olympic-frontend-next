@@ -52,10 +52,17 @@ body {
 
 /* FONT */
 .hero-font {
-  @apply text-[8vw] sm:text-[48px] md:text-[56px] lg:text-[64px] font-bold;
+  @apply text-[8vw] sm:text-[48px] md:text-[56px] lg:text-[64px] font-bold leading-tight;
 }
 
 /* SIZING */
 .section-size {
-  @apply h-[250px] lg:h-[350px];
+  @apply h-[400px] lg:h-[550px] padding;
+}
+.max-width {
+  @apply max-w-[1200px] mx-auto;
+}
+/* BUTTON */
+.cta-btn {
+  @apply px-4 py-2 rounded-full hover:opacity-70 transition-all duration-300;
 }

@@ -8,9 +8,7 @@ const route = [
 
 const NavBar = () => {
   return (
-    <nav className="padding flexbox-between">
-      <h1>Olympic Dashboard</h1>
-
+    <nav className="padding flexbox-center">
       <div className="flex items-center gap-4">
         {route.map((item) => {
           return (
