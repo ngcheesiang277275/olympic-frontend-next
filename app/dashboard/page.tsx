@@ -21,40 +21,24 @@ export default async function Dashboard() {
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     const [
-      monthlyResponse,
-      browserResponse,
-      visitorResponse,
-      donutBrowserResponse,
-      pieResponse,
+      medalRankingResponse,
+      modelRankingResponse,
     ] = await Promise.all([
-      fetch("https://jsonplaceholder.typicode.com/todos/1"),
-      fetch("https://jsonplaceholder.typicode.com/todos/1"),
-      fetch("https://jsonplaceholder.typicode.com/todos/1"),
-      fetch("https://jsonplaceholder.typicode.com/todos/1"),
-      fetch("https://jsonplaceholder.typicode.com/todos/1"),
-      // fetch("/api/monthly-data"),
-      // fetch("/api/browser-data"),
-      // fetch("/api/visitor-data"),
-      // fetch("/api/donut-browser-data"),
-      // fetch("/api/pie-data"),
+      fetch("http://127.0.0.1:8000/medal-ranking"),
+      fetch("http://127.0.0.1:8000/medal-ranking"),
     ]);
 
-    const monthlyData = await monthlyResponse.json();
-    const browserData = await browserResponse.json();
-    const visitorData = await visitorResponse.json();
-    const donutBrowserData = await donutBrowserResponse.json();
-    const pieData = await pieResponse.json();
+    const medalRankingData = await medalRankingResponse.json();
+    const modelRankingData = await modelRankingResponse.json();
 
     return {
-      monthlyData,
-      browserData,
-      visitorData,
-      donutBrowserData,
-      pieData,
+      medalRankingData,
+      modelRankingData,
     };
   }
 
   const data = await getData();
+  console.log(data);
 
   return (
     <div className="parent-grid">
