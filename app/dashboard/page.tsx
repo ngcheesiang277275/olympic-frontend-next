@@ -16,7 +16,46 @@ import {
   visitorData,
 } from "../../constants/chart-dummy-data.constant";
 
-export default function Dashboard() {
+export default async function Dashboard() {
+  async function getData() {
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    const [
+      monthlyResponse,
+      browserResponse,
+      visitorResponse,
+      donutBrowserResponse,
+      pieResponse,
+    ] = await Promise.all([
+      fetch("https://jsonplaceholder.typicode.com/todos/1"),
+      fetch("https://jsonplaceholder.typicode.com/todos/1"),
+      fetch("https://jsonplaceholder.typicode.com/todos/1"),
+      fetch("https://jsonplaceholder.typicode.com/todos/1"),
+      fetch("https://jsonplaceholder.typicode.com/todos/1"),
+      // fetch("/api/monthly-data"),
+      // fetch("/api/browser-data"),
+      // fetch("/api/visitor-data"),
+      // fetch("/api/donut-browser-data"),
+      // fetch("/api/pie-data"),
+    ]);
+
+    const monthlyData = await monthlyResponse.json();
+    const browserData = await browserResponse.json();
+    const visitorData = await visitorResponse.json();
+    const donutBrowserData = await donutBrowserResponse.json();
+    const pieData = await pieResponse.json();
+
+    return {
+      monthlyData,
+      browserData,
+      visitorData,
+      donutBrowserData,
+      pieData,
+    };
+  }
+
+  const data = await getData();
+
   return (
     <div className="max-width padding grid grid-cols-1 gap-4">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -24,6 +63,7 @@ export default function Dashboard() {
           title="Monthly Desktop Usage"
           description="January - June 2024"
           data={monthlyData}
+          // data={data.monthlyData}
           config={desktopConfig}
           bar={barConfig}
           trend={{
@@ -38,6 +78,7 @@ export default function Dashboard() {
           title="Browser Usage"
           description="January - June 2024"
           data={browserData}
+          // data={data.browserData}
           config={browserConfig}
           trend={{
             value: 5.2,
@@ -52,6 +93,7 @@ export default function Dashboard() {
             title="Visitor Statistics"
             description="Showing total visitors for the last 6 months"
             data={visitorData}
+            // data={data.visitorData}
             config={visitorConfig}
             areas={areaConfigs}
             trend={{
@@ -70,6 +112,7 @@ export default function Dashboard() {
           title="Browser Usage"
           description="January - June 2024"
           data={browserData}
+          // data={data.browserData}
           config={browserConfig}
           trend={{
             value: 5.2,
@@ -82,6 +125,7 @@ export default function Dashboard() {
           title="Browser Usage"
           description="January - June 2024"
           data={donutBrowserData}
+          // data={data.donutBrowserData}
           config={donutBrowserConfig}
           trend={{
             value: 5.2,
