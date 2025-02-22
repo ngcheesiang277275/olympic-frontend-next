@@ -17,11 +17,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-
-interface StackedChartData {
-  [key: string]: string | number;
-  xAxis: string;
-}
+import BarChartDataModel from "@/entity/barChartDataModel";
 
 interface StackedAreaConfig {
   dataKey: string;
@@ -34,7 +30,7 @@ interface StackedAreaConfig {
 interface StackedChartProps {
   title: string;
   description: string;
-  data: StackedChartData[];
+  data: BarChartDataModel[];
   config: ChartConfig;
   areas: StackedAreaConfig[];
   trend?: {

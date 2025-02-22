@@ -17,17 +17,12 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-
-interface BarChartData {
-  category: string;
-  value: number;
-  fill: string;
-}
+import ChartDataType from "@/entity/chartDataModel";
 
 interface HorizontalBarChartProps {
   title: string;
   description: string;
-  data: BarChartData[];
+  data: ChartDataType[];
   config: ChartConfig;
   trend?: {
     value: number;

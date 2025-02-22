@@ -17,17 +17,12 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-
-interface PieChartData {
-  category: string;
-  value: number;
-  fill: string;
-}
+import ChartDataType from "@/entity/chartDataModel";
 
 interface CustomPieChartProps {
   title: string;
   description: string;
-  data: PieChartData[];
+  data: ChartDataType[];
   config: ChartConfig;
   trend?: {
     value: number;

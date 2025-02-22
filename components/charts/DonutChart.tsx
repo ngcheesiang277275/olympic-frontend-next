@@ -18,17 +18,12 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-
-interface DonutChartData {
-  category: string;
-  value: number;
-  fill: string;
-}
+import ChartDataType from "@/entity/chartDataModel";
 
 interface DonutChartProps {
   title: string;
   description: string;
-  data: DonutChartData[];
+  data: ChartDataType[];
   config: ChartConfig;
   trend?: {
     value: number;

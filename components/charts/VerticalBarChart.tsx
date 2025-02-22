@@ -17,11 +17,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-
-interface VerticalBarChartData {
-  [key: string]: string | number;
-  xAxis: string;
-}
+import BarChartDataModel from "@/entity/barChartDataModel";
 
 interface BarConfig {
   dataKey: string;
@@ -32,7 +28,7 @@ interface BarConfig {
 interface VerticalBarChartProps {
   title: string;
   description: string;
-  data: VerticalBarChartData[];
+  data: BarChartDataModel[];
   config: ChartConfig;
   bar: BarConfig;
   trend?: {
