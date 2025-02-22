@@ -14,12 +14,8 @@ const NavBar = () => {
 
   return (
     <nav className="padding flexbox-center">
-      <Tabs
-        defaultValue={pathname}
-        value={pathname}
-        className="w-[400px] bg-secondary-color rounded-full p-2"
-      >
-        <TabsList className="grid w-full grid-cols-2">
+      <Tabs defaultValue={pathname} value={pathname} className="w-[400px] ">
+        <TabsList className="grid bg-black w-full grid-cols-2 rounded-full h-11 p-2">
           {routes.map((item) => (
             <TabsTrigger
               key={item.pageTitle}
