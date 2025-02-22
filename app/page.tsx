@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { benefits } from "./constants/landingPage.constant";
+import { BenefitsCard } from "@/components/custom-component/BenefitsCard";
 
 export default function Home() {
   return (
@@ -21,14 +23,20 @@ export default function Home() {
       </section>
 
       <div className="bg-secondary-color">
-        <section className="section-size p-4 ">
+        <section className="padding h-full p-4 ">
           <div className="bg-white padding rounded-xl h-full max-width">
             <h1 className=" hero-font">Why Choose Us?</h1>
 
-            <div className="flex flex-col md:flex-row gap-4">
-              <Card></Card>
-              <Card></Card>
-              <Card></Card>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-6">
+              {benefits.map((item) => {
+                return (
+                  <BenefitsCard
+                    key={item.title}
+                    description={item.description}
+                    title={item.title}
+                  ></BenefitsCard>
+                );
+              })}
             </div>
           </div>
         </section>

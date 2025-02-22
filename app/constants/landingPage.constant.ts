@@ -56,7 +56,7 @@ export const apiExample: LandingPageApiExample[] = [
 
 export const benefits: LandingPageBenefit[] = [
   {
-    title: "Comprehensive Historical Data",
+    title: "Detailed Historical Data",
     description:
       "Access detailed records of past Olympic events, including athletes, results, and medal counts.",
     image: "string",
