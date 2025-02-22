@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
 export default function Home() {
   return (
@@ -23,6 +24,12 @@ export default function Home() {
         <section className="section-size p-4 ">
           <div className="bg-white padding rounded-xl h-full max-width">
             <h1 className=" hero-font">Why Choose Us?</h1>
+
+            <div className="flex flex-col md:flex-row gap-4">
+              <Card></Card>
+              <Card></Card>
+              <Card></Card>
+            </div>
           </div>
         </section>
 

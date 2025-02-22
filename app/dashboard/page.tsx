@@ -14,7 +14,7 @@ import {
   monthlyData,
   visitorConfig,
   visitorData,
-} from "../constants/chartDummyData";
+} from "../constants/chart-dummy-data.constant";
 
 export default function Dashboard() {
   return (
