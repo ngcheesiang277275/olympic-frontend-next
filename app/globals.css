@@ -42,6 +42,10 @@ body {
   @apply text-[8vw] sm:text-[48px] md:text-[56px] lg:text-[64px] font-bold leading-tight;
 }
 
+.subhero-font {
+  @apply text-[6vw] sm:text-[32px] md:text-[48px] lg:text-[52px] font-bold leading-tight;
+}
+
 /* SIZING */
 .section-size {
   @apply h-[400px] lg:h-[550px] padding;
