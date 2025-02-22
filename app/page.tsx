@@ -44,7 +44,15 @@ export default function Home() {
 
         <section className="padding h-full flexbox-center flex-col gap-4">
           <div className="bg-black w-full padding rounded-lg">
-            <h2 className="text-white subhero-font">API Endpoint</h2>
+            <h2 className="text-white subhero-font text-center">
+              API Endpoint
+            </h2>
+            <p className="text-secondary-color text-center max-w-[80%] mx-auto my-2">
+              Explore our comprehensive API endpoints that provide access to
+              historical Olympic data. Each endpoint is designed to deliver
+              specific information about medals, athletes, events, and host
+              countries.
+            </p>
             <Accordion
               type="single"
               collapsible

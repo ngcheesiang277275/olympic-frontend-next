@@ -16,7 +16,10 @@ export function ApiAccordion({
   requestMethod,
 }: BenefitsCardProps) {
   return (
-    <AccordionItem value={endpoint} className="p-4 bg-[#1b1827] rounded-lg">
+    <AccordionItem
+      value={endpoint}
+      className="p-4 bg-[#1b1827] hover:bg-[#322d45] hover:cursor-pointer rounded-lg"
+    >
       <AccordionTrigger className="flex flex-col sm:flex-row items-start sm:items-center gap-4 w-full">
         <div className="bg-slate-500 text-secondary-color rounded-full text-sm py-0.5 px-2">
           {requestMethod}
