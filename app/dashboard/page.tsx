@@ -57,8 +57,8 @@ export default async function Dashboard() {
   const data = await getData();
 
   return (
-    <div className="max-width padding grid grid-cols-1 gap-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="parent-grid">
+      <div className="child-first-grid">
         <VerticalBarChart
           title="Monthly Desktop Usage"
           description="January - June 2024"
@@ -107,7 +107,7 @@ export default async function Dashboard() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="child-second-grid">
         <CustomPieChart
           title="Browser Usage"
           description="January - June 2024"

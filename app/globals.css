@@ -6,7 +6,7 @@ body {
   color: var(--background);
 }
 
-/* COLORS */
+/*-------------------------- COLORS --------------------------*/
 .bg-secondary-color {
   @apply bg-[#f6f6f6];
 }
@@ -23,12 +23,12 @@ body {
   @apply bg-[#1b3a34];
 }
 
-/* PADDING */
+/*-------------------------- PADDING --------------------------*/
 .padding {
   @apply p-4 lg:p-6;
 }
 
-/* FLEXBOX */
+/*-------------------------- FLEXBOX --------------------------*/
 .flexbox-between {
   @apply flex justify-between items-center;
 }
@@ -37,7 +37,7 @@ body {
   @apply flex justify-center items-center;
 }
 
-/* FONT */
+/*-------------------------- FONT --------------------------*/
 .hero-font {
   @apply text-[8vw] sm:text-[48px] md:text-[56px] lg:text-[64px] font-bold leading-tight;
 }
@@ -46,16 +46,31 @@ body {
   @apply text-[6vw] sm:text-[32px] md:text-[48px] lg:text-[52px] font-bold leading-tight;
 }
 
-/* SIZING */
+/*-------------------------- SIZING --------------------------*/
 .section-size {
   @apply h-[400px] lg:h-[550px] padding;
 }
+
 .max-width {
   @apply max-w-[1200px] mx-auto;
 }
-/* BUTTON */
+
+/*-------------------------- BUTTON --------------------------*/
 .cta-btn {
   @apply px-4 py-2 rounded-full hover:opacity-70 transition-all duration-300;
+}
+
+/*-------------------------- DASHBOARD PAGE --------------------------*/
+.parent-grid {
+  @apply max-width padding grid grid-cols-1 gap-4;
+}
+
+.child-first-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
+}
+
+.child-second-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-4;
 }
 
 @layer base {
