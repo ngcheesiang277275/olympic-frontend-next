@@ -1,9 +1,8 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { apiExample, benefits } from "../constants/landingPage.constant";
-import { BenefitsCard } from "@/components/custom-component/BenefitsCard";
-import { Accordion } from "@radix-ui/react-accordion";
 import { ApiAccordion } from "@/components/custom-component/ApiAccordion";
+import { BenefitsCard } from "@/components/custom-component/BenefitsCard";
+import { Button } from "@/components/ui/button";
+import { Accordion } from "@radix-ui/react-accordion";
+import { apiExample, benefits } from "../constants/landingPage.constant";
 
 export default function Home() {
   return (
