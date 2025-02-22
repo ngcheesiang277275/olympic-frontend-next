@@ -18,17 +18,3 @@ export interface Dataset {
 export interface Filters {
   years: number[];
 }
-
-// Optional: Type guard to validate the response
-export function isApiChartDataResponse(obj: any): obj is ApiChartDataResponse {
-  return (
-    obj &&
-    typeof obj === "object" &&
-    "chart_data" in obj &&
-    "chart_type" in obj &&
-    "filters" in obj &&
-    Array.isArray(obj.chart_data.labels) &&
-    Array.isArray(obj.chart_data.datasets) &&
-    Array.isArray(obj.filters.years)
-  );
-}
