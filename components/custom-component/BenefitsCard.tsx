@@ -10,16 +10,10 @@ export function BenefitsCard({ title, description, icon }: BenefitsCardProps) {
   return (
     <Card className="min-h-[150px] hover:scale-105 hover:bg-black hover:text-white transition-all duration-300 sm:min-h-[250px] lg:min-h-[280px] xl:min-h-[260px]">
       <CardHeader>
-        {icon ? (
-          icon
-        ) : (
-          <div className="size-8 rounded-full bg-slate-500"></div>
-        )}
+        {icon ? icon : <div className="size-8 rounded-full bg-slate-500"></div>}
         <h3 className="font-semibold">{title}</h3>
       </CardHeader>
-      <CardContent className="text-secondary-color">
-        {description}
-      </CardContent>
+      <CardContent className="description-text">{description}</CardContent>
     </Card>
   );
 }

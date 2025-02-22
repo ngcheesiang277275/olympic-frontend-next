@@ -39,11 +39,15 @@ body {
 
 /*-------------------------- FONT --------------------------*/
 .hero-font {
-  @apply text-[8vw] sm:text-[48px] md:text-[56px] lg:text-[64px] font-bold leading-tight;
+  @apply text-[32px] sm:text-[48px] md:text-[56px] lg:text-[64px] font-bold leading-tight;
 }
 
 .subhero-font {
-  @apply text-[6vw] sm:text-[32px] md:text-[48px] lg:text-[52px] font-bold leading-tight;
+  @apply text-[24px] sm:text-[32px] md:text-[48px] lg:text-[52px] font-bold leading-tight;
+}
+
+.description-text {
+  @apply text-secondary-color text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px];
 }
 
 /*-------------------------- SIZING --------------------------*/
