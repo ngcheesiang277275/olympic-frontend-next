@@ -1,6 +1,6 @@
 export interface ApiChartDataResponse {
   chart_data: ChartData;
-  chart_type: "bar" | "line" | "pie" | "doughnut" | "radar"; // Add other chart types as needed
+  chart_type: "bar" | "line" | "pie" | "doughnut" | "radar"; 
   filters: Filters;
 }
 
