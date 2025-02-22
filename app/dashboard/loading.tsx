@@ -3,14 +3,12 @@ import { SkeletonChart } from "@/components/charts/SkeletonChart";
 const Loading = () => {
   return (
     <div className="parent-grid">
-      <div className="child-first-grid">
+      <div className="child-grid">
         <SkeletonChart></SkeletonChart>
         <SkeletonChart></SkeletonChart>
-        <div className="col-span-2 lg:col-span-1">
-          <SkeletonChart></SkeletonChart>
-        </div>
       </div>
-      <div className="child-second-grid">
+      <SkeletonChart></SkeletonChart>
+      <div className="child-grid">
         <SkeletonChart></SkeletonChart>
         <SkeletonChart></SkeletonChart>
       </div>

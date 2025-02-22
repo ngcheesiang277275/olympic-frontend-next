@@ -65,11 +65,7 @@ body {
   @apply max-width padding grid grid-cols-1 gap-4;
 }
 
-.child-first-grid {
-  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
-}
-
-.child-second-grid {
+.child-grid {
   @apply grid grid-cols-1 md:grid-cols-2 gap-4;
 }
 

@@ -18,7 +18,7 @@ import {
 
 export default async function Dashboard() {
   async function getData() {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     const [
       monthlyResponse,
@@ -58,7 +58,7 @@ export default async function Dashboard() {
 
   return (
     <div className="parent-grid">
-      <div className="child-first-grid">
+      <div className="child-grid">
         <VerticalBarChart
           title="Monthly Desktop Usage"
           description="January - June 2024"
@@ -87,27 +87,25 @@ export default async function Dashboard() {
           }}
           margin={{ left: 16 }}
         />
-
-        <div className="col-span-2 lg:col-span-1">
-          <StackedChart
-            title="Visitor Statistics"
-            description="Showing total visitors for the last 6 months"
-            data={visitorData}
-            // data={data.visitorData}
-            config={visitorConfig}
-            areas={areaConfigs}
-            trend={{
-              value: 5.2,
-              isUp: true,
-              text: "Trending up by 5.2% this month",
-            }}
-            dateRange="January - June 2024"
-            margin={{ left: 12, right: 12 }}
-          />
-        </div>
       </div>
 
-      <div className="child-second-grid">
+      <StackedChart
+        title="Visitor Statistics"
+        description="Showing total visitors for the last 6 months"
+        data={visitorData}
+        // data={data.visitorData}
+        config={visitorConfig}
+        areas={areaConfigs}
+        trend={{
+          value: 5.2,
+          isUp: true,
+          text: "Trending up by 5.2% this month",
+        }}
+        dateRange="January - June 2024"
+        margin={{ left: 12, right: 12 }}
+      />
+
+      <div className="child-grid">
         <CustomPieChart
           title="Browser Usage"
           description="January - June 2024"
