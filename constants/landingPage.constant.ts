@@ -81,4 +81,17 @@ export const benefits: LandingPageBenefit[] = [
   },
 ];
 
-export const members: LandingPageMember[] = [];
+export const members: LandingPageMember[] = [
+  {
+    description:
+      "lorem lorem lorem lorem lorem loremlorem lorem loreml orem  123 12 lorem lorem",
+    image: "",
+    name: "NG CHEE SIANG",
+  },
+  {
+    description:
+      "lorem lorem lorem lorem lorem loremlorem lorem loreml orem lorem lorem xxxad2323",
+    image: "",
+    name: "MUHAMMAD MUAZ BIN MD HAZALI",
+  },
+];
