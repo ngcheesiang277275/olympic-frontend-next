@@ -3,42 +3,44 @@ import { DonutChart } from "@/components/charts/DonutChart";
 import { LineChartCard } from "@/components/charts/LineChart";
 import { StackedBarChart } from "@/components/charts/StackedBarChart";
 import { StackedChart } from "@/components/charts/StackedChart";
+import { StatCardGroup } from "@/components/charts/StatCardGroup";
+import { Calendar, Flag, Medal, Trophy, Users } from "lucide-react";
 import {
   areaConfigs,
   browserConfig,
   browserData,
-  donutBrowserConfig,
-  donutBrowserData,
+  genderChartConfig,
   medalChartConfig,
   visitorConfig,
   visitorData,
 } from "../../constants/chart-dummy-data.constant";
-import { StatCardGroup } from "@/components/charts/StatCardGroup";
-import { Users, Medal, Trophy, Flag, Calendar } from "lucide-react";
 
 export default async function Dashboard() {
   async function getData() {
     const [
       medalRankingResponse,
       medalComparisonResponse,
+      genderStatsResponse,
       totalAthletesResponse,
       totalOlympicsResponse,
       totalMedalsResponse,
       totalSportsResponse,
       totalCountriesResponse,
     ] = await Promise.all([
-      fetch("http://127.0.0.1:8000/medal-ranking"),
-      fetch("http://127.0.0.1:8000/medal-comparison?country=Malaysia"),
-      fetch("http://127.0.0.1:8000/stats/total-athletes"),
-      fetch("http://127.0.0.1:8000/stats/total-olympics"),
-      fetch("http://127.0.0.1:8000/stats/total-medals"),
-      fetch("http://127.0.0.1:8000/stats/total-sports"),
-      fetch("http://127.0.0.1:8000/stats/total-countries"),
+      fetch("http://127.0.0.1:8000/api/medal-ranking"),
+      fetch("http://127.0.0.1:8000/api/medal-comparison?country=Malaysia"),
+      fetch("http://127.0.0.1:8000/api/gender-distribution"),
+      fetch("http://127.0.0.1:8000/api/stats/total-athletes"),
+      fetch("http://127.0.0.1:8000/api/stats/total-olympics"),
+      fetch("http://127.0.0.1:8000/api/stats/total-medals"),
+      fetch("http://127.0.0.1:8000/api/stats/total-sports"),
+      fetch("http://127.0.0.1:8000/api/stats/total-countries"),
     ]);
 
     const [
       medalRankingData,
       medalComparisonData,
+      genderStatsData,
       totalAthletes,
       totalOlympics,
       totalMedals,
@@ -47,12 +49,19 @@ export default async function Dashboard() {
     ] = await Promise.all([
       medalRankingResponse.json(),
       medalComparisonResponse.json(),
+      genderStatsResponse.json(),
       totalAthletesResponse.json(),
       totalOlympicsResponse.json(),
       totalMedalsResponse.json(),
       totalSportsResponse.json(),
       totalCountriesResponse.json(),
     ]);
+
+    const genderChartData = genderStatsData.data.map((item) => ({
+      name: item.gender.charAt(0).toUpperCase() + item.gender.slice(1),
+      value: item.athletes,
+      percentage: item.percentage,
+    }));
 
     const statsData = [
       {
@@ -85,6 +94,10 @@ export default async function Dashboard() {
     return {
       medalRankingData,
       medalComparisonData,
+      genderStatsData: {
+        data: genderChartData,
+        total: genderStatsData.total_athletes,
+      },
       statsData,
     };
   }
@@ -161,22 +174,10 @@ export default async function Dashboard() {
         />
 
         <DonutChart
-          title="Browser Usage"
-          description="January - June 2024"
-          data={donutBrowserData}
-          // data={data.donutBrowserData}
-          config={donutBrowserConfig}
-          trend={{
-            value: 5.2,
-            isUp: true,
-            text: "Trending up by 5.2% this month",
-          }}
-          centerLabel={{
-            value: "1,125",
-            subtitle: "Visitors",
-          }}
-          innerRadius={60}
-          strokeWidth={5}
+          title="Gender Distribution"
+          description="Distribution of athletes by gender"
+          data={data.genderStatsData.data}
+          config={genderChartConfig}
         />
       </div>
     </div>
