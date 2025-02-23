@@ -70,13 +70,13 @@ export default function Home() {
 
         <section className="padding h-full gap-4 pb-6 max-width">
           <h2 className="text-bold subhero-font text-center">Meet Our Team</h2>
-          <p className="description-text sm:max-w-[80vw] mt-4 text-center">
+          <p className="description-text sm:max-w-[80vw] mx-auto mt-4 text-center">
             Meet the talented developers behind this project. Our team is
             passionate about making Olympic historical data accessible through
             modern web technologies and APIs.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col lg:flex-row justify-center mt-6 gap-6 lg:gap-10">
             {members.map((item) => (
               <ImageCard
                 key={item.name}
