@@ -23,7 +23,7 @@ interface MultiLineChartProps {
   description: string;
   data: Array<{
     xAxis: string;
-    [key: string]: string | number; // Allow dynamic country names as keys
+    [key: string]: string | number;
   }>;
   config: ChartConfig;
   trendingDescription?: string;
@@ -38,7 +38,8 @@ export function MultiLineChart({
   trendingDescription,
   totalDescription,
 }: MultiLineChartProps) {
-  const countries = Object.keys(data[0] || {}).filter((key) => key !== "xAxis");
+  // Get data keys excluding xAxis
+  const dataKeys = Object.keys(data[0] || {}).filter((key) => key !== "xAxis");
 
   return (
     <Card>
@@ -63,13 +64,15 @@ export function MultiLineChart({
             <YAxis tickLine={false} axisLine={false} tickMargin={8} />
             <ChartTooltip content={<ChartTooltipContent />} />
             <ChartLegend content={<ChartLegendContent />} />
-            {countries.map((country) => (
+            {dataKeys.map((key) => (
               <Line
-                key={country}
+                key={key}
                 type="monotone"
-                dataKey={country}
-                name={country}
-                stroke={config[country]?.color || "#000"}
+                dataKey={key}
+                name={config[key.charAt(0).toUpperCase() + key.slice(1)].label} // Convert to match config key
+                stroke={
+                  config[key.charAt(0).toUpperCase() + key.slice(1)].color
+                }
                 strokeWidth={2}
                 dot={false}
                 activeDot={{ r: 8 }}

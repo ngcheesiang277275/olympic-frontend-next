@@ -134,7 +134,7 @@ export default async function Dashboard() {
         />
 
         <MultiLineChart
-          title={`Medal Trends of ${data.medalComparisonData.country}`}
+          title="Medal Trends of Top 5 Countries"
           description={`Year ${data.medalComparisonData.filters.years[0]} - ${
             data.medalComparisonData.filters.years[
               data.medalComparisonData.filters.years.length - 1
@@ -142,10 +142,19 @@ export default async function Dashboard() {
           }`}
           data={data.medalComparisonData.chart_data}
           config={medalComparisonChartConfig}
-          totalDescription={`Total medals: ${data.medalComparisonData.chart_data.reduce(
-            (sum: number, item: { medals: number }) => sum + item.medals,
-            0
-          )}`}
+          trendingDescription={`United States leads with most total medals`}
+          totalDescription={`Total medals by country: ${Object.entries(
+            data.medalComparisonData.chart_data.reduce((acc, item) => {
+              Object.keys(item).forEach((key) => {
+                if (key !== "xAxis") {
+                  acc[key] = (acc[key] || 0) + item[key];
+                }
+              });
+              return acc;
+            }, {})
+          )
+            .map(([country, total]) => `${country}: ${total}`)
+            .join(", ")}`}
         />
       </div>
 
