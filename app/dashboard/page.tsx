@@ -22,7 +22,6 @@ export default async function Dashboard() {
       totalOlympicsResponse,
       totalMedalsResponse,
       totalSportsResponse,
-      totalCountriesResponse,
     ] = await Promise.all([
       fetch("http://127.0.0.1:8000/api/medal-ranking"),
       fetch("http://127.0.0.1:8000/api/medal-comparison?country=Malaysia"),
@@ -33,7 +32,6 @@ export default async function Dashboard() {
       fetch("http://127.0.0.1:8000/api/stats/total-olympics"),
       fetch("http://127.0.0.1:8000/api/stats/total-medals"),
       fetch("http://127.0.0.1:8000/api/stats/total-sports"),
-      fetch("http://127.0.0.1:8000/api/stats/total-countries"),
     ]);
 
     const [
@@ -46,7 +44,6 @@ export default async function Dashboard() {
       totalOlympics,
       totalMedals,
       totalSports,
-      totalCountries,
     ] = await Promise.all([
       medalRankingResponse.json(),
       medalComparisonResponse.json(),
@@ -57,7 +54,6 @@ export default async function Dashboard() {
       totalOlympicsResponse.json(),
       totalMedalsResponse.json(),
       totalSportsResponse.json(),
-      totalCountriesResponse.json(),
     ]);
 
     const genderChartData = genderStatsData.data.map(
@@ -88,11 +84,6 @@ export default async function Dashboard() {
         title: "Total Sports",
         value: totalSports.total_sports,
         icon: <Trophy className="h-4 w-4 text-muted-foreground" />,
-      },
-      {
-        title: "Total Countries",
-        value: totalCountries.total_countries,
-        icon: <Flag className="h-4 w-4 text-muted-foreground" />,
       },
     ];
 

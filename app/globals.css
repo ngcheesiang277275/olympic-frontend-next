@@ -12,7 +12,7 @@ body {
 }
 
 .text-secondary-color {
-  @apply text-[#cecece];
+  @apply text-[#9e9898];
 }
 
 .tertiary-color {
