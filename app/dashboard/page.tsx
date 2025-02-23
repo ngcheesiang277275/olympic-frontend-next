@@ -3,11 +3,20 @@ import { MultiLineChart } from "@/components/charts/MultiLineChart";
 import { StackedBarChart } from "@/components/charts/StackedBarChart";
 import { StatCardGroup } from "@/components/charts/StatCardGroup";
 import { Calendar, Medal, Trophy, Users } from "lucide-react";
+import { Metadata } from "next";
 import {
   genderChartConfig,
   medalChartConfig,
   medalComparisonChartConfig,
 } from "../../constants/chart-dummy-data.constant";
+
+export const metadata: Metadata = {
+  title: "Olympic Dashboard | Interactive Olympic Data Visualization",
+  description:
+    "Explore Olympic data through interactive charts and visualizations. View medal rankings, gender distribution, and historical trends in Olympic sports.",
+  keywords:
+    "Olympic dashboard, medal rankings, gender distribution, Olympic visualization, sports statistics",
+};
 
 export default async function Dashboard() {
   async function getData() {
