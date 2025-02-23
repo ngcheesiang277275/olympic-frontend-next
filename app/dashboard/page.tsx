@@ -175,12 +175,7 @@ export default async function Dashboard() {
           description="Gender trends of athletes"
           data={data.genderTrendData.data}
           config={genderChartConfig}
-          trendingDescription={`Female participation increased from ${
-            data.genderTrendData.data[0].female
-          } to ${
-            data.genderTrendData.data[data.genderTrendData.data.length - 1]
-              .female
-          } athletes`}
+          trendingDescription={`Highest male participation was in the 1992 Olympics with 8,496 athletes`}
           totalDescription={`Latest Olympics (${
             data.genderTrendData.data[data.genderTrendData.data.length - 1]
               .xAxis

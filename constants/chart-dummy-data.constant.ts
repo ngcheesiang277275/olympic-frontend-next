@@ -23,10 +23,10 @@ export const medalComparisonChartConfig = {
 export const genderChartConfig = {
   Male: {
     label: "Male",
-    color: "#DBDBDB",
+    color: "#A2BFFE",
   },
   Female: {
     label: "Female",
-    color: "#7D7D7D",
+    color: "#FF69B4",
   },
 } satisfies ChartConfig;
