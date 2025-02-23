@@ -52,6 +52,12 @@ function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
   );
 }
 
+const truncateLabel = (label: string, maxLength: number = 10) => {
+  return label.length > maxLength
+    ? `${label.substring(0, maxLength)}...`
+    : label;
+};
+
 export function StackedBarChart({
   title,
   description,
@@ -76,19 +82,36 @@ export function StackedBarChart({
       </CardHeader>
       <CardContent>
         <ChartContainer config={config}>
-          <BarChart accessibilityLayer data={data}>
+          <BarChart
+            accessibilityLayer
+            data={data}
+            margin={{ top: 40, right: 20, bottom: 60, left: 20 }}
+          >
             <CartesianGrid vertical={false} />
             <XAxis
               dataKey="xAxis"
               tickLine={false}
-              tickMargin={10}
+              tickMargin={25}
               axisLine={false}
+              angle={-45}
+              textAnchor="end"
+              height={70}
+              interval={0}
+              tick={{
+                fontSize: 12,
+              }}
+              tickFormatter={(value) => truncateLabel(value)}
             />
             <ChartTooltip
               content={<CustomTooltip />}
               cursor={{ fill: "var(--muted)" }}
             />
-            <ChartLegend content={<ChartLegendContent />} />
+            <ChartLegend
+              content={<ChartLegendContent />}
+              verticalAlign="top"
+              align="center"
+              height={36}
+            />
             {keys.map((key, index) => (
               <Bar
                 key={key}
