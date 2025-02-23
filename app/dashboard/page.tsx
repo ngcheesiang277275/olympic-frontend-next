@@ -1,14 +1,13 @@
 import { DonutChart } from "@/components/charts/DonutChart";
-import { LineChartCard } from "@/components/charts/LineChart";
+import { MultiLineChart } from "@/components/charts/MultiLineChart";
 import { StackedBarChart } from "@/components/charts/StackedBarChart";
 import { StatCardGroup } from "@/components/charts/StatCardGroup";
-import { Calendar, Flag, Medal, Trophy, Users } from "lucide-react";
+import { Calendar, Medal, Trophy, Users } from "lucide-react";
 import {
   genderChartConfig,
   medalChartConfig,
   medalComparisonChartConfig,
 } from "../../constants/chart-dummy-data.constant";
-import { MultiLineChart } from "@/components/charts/MultiLineChart";
 
 export default async function Dashboard() {
   async function getData() {
