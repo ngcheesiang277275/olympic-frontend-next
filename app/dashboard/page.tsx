@@ -51,6 +51,12 @@ export default async function Dashboard() {
           }`}
           data={data.modelRankingData.data}
           config={medalRankingConfig}
+          trendDescription={`${data.modelRankingData.data[0].xAxis} having the most medals`}
+          totalDescription={`with total of ${
+            data.modelRankingData.data[0].gold +
+            data.modelRankingData.data[0].silver +
+            data.modelRankingData.data[0].bronze
+          } medals`}
         />
 
         <HorizontalBarChart

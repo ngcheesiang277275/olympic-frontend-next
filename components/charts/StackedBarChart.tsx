@@ -25,11 +25,15 @@ export function StackedBarChart({
   description,
   data,
   config,
+  trendDescription,
+  totalDescription,
 }: {
   title: string;
   description: string;
   data: Array<Record<string, number>>;
   config: ChartConfig;
+  trendDescription: string;
+  totalDescription: string;
 }) {
   const keys = Object.keys(config);
   return (
@@ -65,10 +69,10 @@ export function StackedBarChart({
       </CardContent>
       <CardFooter className="flex-col items-start gap-2 text-sm">
         <div className="flex gap-2 font-medium leading-none">
-          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+          {trendDescription} <TrendingUp className="h-4 w-4" />
         </div>
         <div className="leading-none text-muted-foreground">
-          Showing total visitors for the last 6 months
+          {totalDescription}
         </div>
       </CardFooter>
     </Card>
