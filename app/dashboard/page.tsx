@@ -1,38 +1,34 @@
 import { CustomPieChart } from "@/components/charts/CustomPieChart";
 import { DonutChart } from "@/components/charts/DonutChart";
-import { HorizontalBarChart } from "@/components/charts/HorizontalBarChart";
+import { LineChartCard } from "@/components/charts/LineChart";
+import { StackedBarChart } from "@/components/charts/StackedBarChart";
 import { StackedChart } from "@/components/charts/StackedChart";
-import { VerticalBarChart } from "@/components/charts/VerticalBarChart";
 import {
   areaConfigs,
-  barConfig,
   browserConfig,
   browserData,
-  desktopConfig,
   donutBrowserConfig,
   donutBrowserData,
-  medalRankingConfig,
-  monthlyData,
+  medalChartConfig,
   visitorConfig,
   visitorData,
 } from "../../constants/chart-dummy-data.constant";
-import { StackedBarChart } from "@/components/charts/StackedBarChart";
 
 export default async function Dashboard() {
   async function getData() {
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    const [medalRankingResponse, modelRankingResponse] = await Promise.all([
+    const [medalRankingResponse, medalComparisonResponse] = await Promise.all([
       fetch("http://127.0.0.1:8000/medal-ranking"),
-      fetch("http://127.0.0.1:8000/medal-ranking"),
+      fetch("http://127.0.0.1:8000/medal-comparison?country=Australia"),
     ]);
 
     const medalRankingData = await medalRankingResponse.json();
-    const modelRankingData = await modelRankingResponse.json();
+    const medalComparisonData = await medalComparisonResponse.json();
 
     return {
       medalRankingData,
-      modelRankingData,
+      medalComparisonData,
     };
   }
 
@@ -49,28 +45,23 @@ export default async function Dashboard() {
               data.medalRankingData.filters.years.length - 1
             ]
           }`}
-          data={data.modelRankingData.data}
-          config={medalRankingConfig}
-          trendDescription={`${data.modelRankingData.data[0].xAxis} having the most medals`}
+          data={data.medalRankingData.data}
+          config={medalChartConfig}
+          trendDescription={`${data.medalRankingData.data[0].xAxis} having the most medals`}
           totalDescription={`with total of ${
-            data.modelRankingData.data[0].gold +
-            data.modelRankingData.data[0].silver +
-            data.modelRankingData.data[0].bronze
+            data.medalRankingData.data[0].gold +
+            data.medalRankingData.data[0].silver +
+            data.medalRankingData.data[0].bronze
           } medals`}
         />
 
-        <HorizontalBarChart
-          title="Browser Usage"
-          description="January - June 2024"
-          data={browserData}
-          // data={data.browserData}
-          config={browserConfig}
-          trend={{
-            value: 5.2,
-            isUp: true,
-            text: "Trending up by 5.2% this month",
-          }}
-          margin={{ left: 16 }}
+        <LineChartCard
+          title="Medal Trends Over Time"
+          description="Tracking medal counts over different years"
+          data={data.medalComparisonData.chart_data}
+          config={medalChartConfig}
+          trendingDescription={""}
+          totalDescription={""}
         />
       </div>
 

@@ -128,17 +128,9 @@ export const barConfig = {
   radius: 8,
 };
 
-export const medalRankingConfig = {
-  gold: {
-    label: "Gold",
-    color: "hsl(var(--chart-1))",
-  },
-  silver: {
-    label: "Silver",
-    color: "hsl(var(--chart-2))",
-  },
-  bronze: {
-    label: "Bronze",
-    color: "hsl(var(--chart-3))",
-  },
+export const medalChartConfig = {
+  medals: { color: "#FFD700" },
+  gold: { label: "Gold", color: "#FFD700" },
+  silver: { label: "Silver", color: "#C0C0C0" },
+  bronze: { label: "Bronze", color: "#CD7F32" },
 } satisfies ChartConfig;
