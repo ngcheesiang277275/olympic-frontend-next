@@ -14,17 +14,14 @@ export default function Home() {
     <main>
       <section className="section-size max-width flexbox-center flex-col gap-4">
         <h1 className="text-center hero-font sm:max-w-[75vw] lg:max-w-[65vw]">
-          Leading Solution to Optimize your Health
+          HistoricalOlympic Data Analytics Dashboard
         </h1>
 
         <p className="text-center description-text md:max-w-[80vw] lg:max-w-[70vw]">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-          officiis molestiae totam, ut commodi pariatur. Non nulla harum ab ex.
+          Explore comprehensive historical Olympic data through our interactive
+          dashboard. Analyze medal distributions, athlete demographics, and
+          performance trends across multiple Olympic Games with ease.
         </p>
-
-        <div className="flexbox-center">
-          <Button className="cta-btn">Get Started</Button>
-        </div>
       </section>
 
       <div className="bg-secondary-color">
