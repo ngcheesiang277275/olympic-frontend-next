@@ -27,9 +27,8 @@ export default function Home() {
         </h1>
 
         <p className="text-center description-text md:max-w-[80vw] lg:max-w-[70vw]">
-          Dive into our interactive dashboard to explore medal counts, athlete
-          stats, and performance trends across Olympic history. All in one
-          place!
+          Dive into our dashboard to explore medal counts, athlete stats, and
+          performance trends across Olympic history. All in one place!
         </p>
       </section>
 
@@ -59,8 +58,7 @@ export default function Home() {
             <p className="description-text text-center max-w-[80%] mx-auto my-2">
               Explore our comprehensive API endpoints that provide access to
               historical Olympic data. Each endpoint is designed to deliver
-              specific information about medals, athletes, events, and host
-              countries.
+              specific information about medals, athletes and trends.
             </p>
             <Accordion
               type="single"
