@@ -12,7 +12,7 @@ export function ImageCard({ description, image, name }: BenefitsCardProps) {
       <img
         src={image}
         alt={name}
-        className="size-[200px] p-2 rounded-full object-cover bg-white -translate-y-6"
+        className="size-[200px] p-2 rounded-full object-cover bg-white -translate-y-10"
       />
       <div className="absolute bottom-5 left-[50%] w-[90%] -translate-x-[50%] rounded-md bg-white p-4 lg:h-[180px]">
         <h3 className="text-xl text-center font-semibold mb-2">{name}</h3>
