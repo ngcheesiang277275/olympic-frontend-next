@@ -6,7 +6,7 @@ interface LandingPageApiExample {
 
 interface LandingPageBenefit {
   description: string;
-  image: React.ReactNode;
+  image: string;
   title: string;
 }
 
@@ -52,7 +52,7 @@ export const benefits: LandingPageBenefit[] = [
     title: "Detailed Historical Data",
     description:
       "Access detailed records of past Olympic events, including athletes, results, and medal counts.",
-    image: "string",
+    image: "Database",
   },
   {
     title: "Fast and Efficient Queries",
@@ -64,7 +64,7 @@ export const benefits: LandingPageBenefit[] = [
     title: "Data Accuracy and Integrity",
     description:
       "Our database is sourced from official Olympic records, ensuring high accuracy in historical data.",
-    image: "Calendar",
+    image: "SearchCheck",
   },
   {
     title: "Developer-Friendly API",

@@ -1,7 +1,10 @@
+"use client";
+
 import { ApiAccordion } from "@/components/custom-component/ApiAccordion";
 import { BenefitsCard } from "@/components/custom-component/BenefitsCard";
 import { ImageCard } from "@/components/custom-component/ImageCard";
 import { Accordion } from "@radix-ui/react-accordion";
+import { Database, SearchCheck, Trophy, Users } from "lucide-react";
 import {
   apiExample,
   benefits,
@@ -9,6 +12,13 @@ import {
 } from "../constants/landingPage.constant";
 
 export default function Home() {
+  const iconMap = {
+    Database: <Database className="h-6 w-6 text-muted-foreground" />,
+    Trophy: <Trophy className="h-6 w-6 text-muted-foreground" />,
+    SearchCheck: <SearchCheck className="h-6 w-6 text-muted-foreground" />,
+    Users: <Users className="h-6 w-6 text-muted-foreground" />,
+  };
+
   return (
     <main>
       <section className="section-size max-width flexbox-center flex-col gap-4">
@@ -34,6 +44,7 @@ export default function Home() {
                   key={item.title}
                   description={item.description}
                   title={item.title}
+                  icon={iconMap[item.image as keyof typeof iconMap]}
                 />
               ))}
             </div>
