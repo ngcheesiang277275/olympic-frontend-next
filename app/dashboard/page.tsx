@@ -11,19 +11,18 @@ import {
   desktopConfig,
   donutBrowserConfig,
   donutBrowserData,
+  medalRankingConfig,
   monthlyData,
   visitorConfig,
   visitorData,
 } from "../../constants/chart-dummy-data.constant";
+import { StackedBarChart } from "@/components/charts/StackedBarChart";
 
 export default async function Dashboard() {
   async function getData() {
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    const [
-      medalRankingResponse,
-      modelRankingResponse,
-    ] = await Promise.all([
+    const [medalRankingResponse, modelRankingResponse] = await Promise.all([
       fetch("http://127.0.0.1:8000/medal-ranking"),
       fetch("http://127.0.0.1:8000/medal-ranking"),
     ]);
@@ -43,19 +42,15 @@ export default async function Dashboard() {
   return (
     <div className="parent-grid">
       <div className="child-grid">
-        <VerticalBarChart
-          title="Monthly Desktop Usage"
-          description="January - June 2024"
-          data={monthlyData}
-          // data={data.monthlyData}
-          config={desktopConfig}
-          bar={barConfig}
-          trend={{
-            value: 5.2,
-            isUp: true,
-            text: "Trending up by 5.2% this month",
-          }}
-          margin={{ bottom: 10 }}
+        <StackedBarChart
+          title="Medal Ranking"
+          description={`Year ${data.medalRankingData.filters.years[0]} - ${
+            data.medalRankingData.filters.years[
+              data.medalRankingData.filters.years.length - 1
+            ]
+          }`}
+          data={data.modelRankingData.data}
+          config={medalRankingConfig}
         />
 
         <HorizontalBarChart

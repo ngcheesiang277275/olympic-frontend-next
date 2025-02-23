@@ -27,7 +27,7 @@ interface BarConfig {
 
 interface VerticalBarChartProps {
   title: string;
-  description: string;
+  description?: string;
   data: BarChartDataModel[];
   config: ChartConfig;
   bar: BarConfig;

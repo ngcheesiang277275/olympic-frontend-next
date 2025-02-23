@@ -127,3 +127,18 @@ export const barConfig = {
   fill: "var(--color-desktop)",
   radius: 8,
 };
+
+export const medalRankingConfig = {
+  gold: {
+    label: "Gold",
+    color: "hsl(var(--chart-1))",
+  },
+  silver: {
+    label: "Silver",
+    color: "hsl(var(--chart-2))",
+  },
+  bronze: {
+    label: "Bronze",
+    color: "hsl(var(--chart-3))",
+  },
+} satisfies ChartConfig;
