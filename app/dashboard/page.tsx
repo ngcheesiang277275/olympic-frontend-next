@@ -20,7 +20,7 @@ export default async function Dashboard() {
 
     const [medalRankingResponse, medalComparisonResponse] = await Promise.all([
       fetch("http://127.0.0.1:8000/medal-ranking"),
-      fetch("http://127.0.0.1:8000/medal-comparison?country=Australia"),
+      fetch("http://127.0.0.1:8000/medal-comparison?country=Malaysia"),
     ]);
 
     const medalRankingData = await medalRankingResponse.json();
@@ -48,20 +48,27 @@ export default async function Dashboard() {
           data={data.medalRankingData.data}
           config={medalChartConfig}
           trendDescription={`${data.medalRankingData.data[0].xAxis} having the most medals`}
-          totalDescription={`with total of ${
+          totalDescription={`Total medals: ${
             data.medalRankingData.data[0].gold +
             data.medalRankingData.data[0].silver +
             data.medalRankingData.data[0].bronze
-          } medals`}
+          }`}
         />
 
         <LineChartCard
-          title="Medal Trends Over Time"
-          description="Tracking medal counts over different years"
+          title={`Medal Trends of ${data.medalComparisonData.country}`}
+          description={`Year ${data.medalComparisonData.filters.years[0]} - ${
+            data.medalComparisonData.filters.years[
+              data.medalComparisonData.filters.years.length - 1
+            ]
+          }`}
           data={data.medalComparisonData.chart_data}
           config={medalChartConfig}
           trendingDescription={""}
-          totalDescription={""}
+          totalDescription={`Total medals: ${data.medalComparisonData.chart_data.reduce(
+            (sum: number, item: { medals: number }) => sum + item.medals,
+            0
+          )}`}
         />
       </div>
 
