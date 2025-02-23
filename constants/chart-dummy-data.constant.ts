@@ -129,19 +129,18 @@ export const barConfig = {
 };
 
 export const medalChartConfig = {
-  medals: { color: "#FFD700" },
   gold: { label: "Gold", color: "#FFD700" },
   silver: { label: "Silver", color: "#C0C0C0" },
   bronze: { label: "Bronze", color: "#CD7F32" },
 } satisfies ChartConfig;
 
 export const genderChartConfig = {
-  male: {
+  Male: {
     label: "Male",
-    color: "hsl(var(--chart-1))",
+    color: "#DBDBDB",
   },
-  female: {
+  Female: {
     label: "Female",
-    color: "hsl(var(--chart-3))",
+    color: "#7D7D7D",
   },
 } satisfies ChartConfig;

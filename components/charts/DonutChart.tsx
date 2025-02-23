@@ -24,11 +24,13 @@ export function DonutChart({
   data,
   config,
 }: DonutChartProps) {
-  const chartData = Array.isArray(data) ? data : [];
-  const malePercentage =
-    chartData.find((d) => d.name === "Male")?.percentage || 0;
-  const femalePercentage =
-    chartData.find((d) => d.name === "Female")?.percentage || 0;
+  const chartData = Array.isArray(data) ? data.map(item => ({
+    ...item,
+    fill: config[item.name].color
+  })) : [];
+  
+  const malePercentage = chartData.find((d) => d.name === "Male")?.percentage || 0;
+  const femalePercentage = chartData.find((d) => d.name === "Female")?.percentage || 0;
 
   return (
     <Card className="flex flex-col">
@@ -52,6 +54,7 @@ export function DonutChart({
               nameKey="name"
               innerRadius={60}
               strokeWidth={5}
+              fill={(entry) => entry.fill}
             >
               <Label
                 content={({ viewBox }) =>
