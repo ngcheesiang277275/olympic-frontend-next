@@ -1,17 +1,15 @@
 "use client";
 
-import { TrendingUp } from "lucide-react";
+import { ChartConfig } from "@/components/ui/chart";
 import { Label, Pie, PieChart } from "recharts";
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
-  CardTitle,
+  CardTitle
 } from "../ui/card";
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "../ui/chart";
-import { ChartConfig } from "@/components/ui/chart";
 
 interface DonutChartProps {
   title: string;

@@ -1,7 +1,7 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Users, Medal, Trophy, Flag, Calendar } from "lucide-react";
+import { JSX } from "react";
 
 interface StatData {
   title: string;

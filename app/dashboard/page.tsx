@@ -143,22 +143,6 @@ export default async function Dashboard() {
         />
       </div>
 
-      <StackedChart
-        title="Visitor Statistics"
-        description="Showing total visitors for the last 6 months"
-        data={visitorData}
-        // data={data.visitorData}
-        config={visitorConfig}
-        areas={areaConfigs}
-        trend={{
-          value: 5.2,
-          isUp: true,
-          text: "Trending up by 5.2% this month",
-        }}
-        dateRange="January - June 2024"
-        margin={{ left: 12, right: 12 }}
-      />
-
       <div className="child-grid">
         <CustomPieChart
           title="Browser Usage"

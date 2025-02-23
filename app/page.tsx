@@ -1,5 +1,6 @@
 import { ApiAccordion } from "@/components/custom-component/ApiAccordion";
 import { BenefitsCard } from "@/components/custom-component/BenefitsCard";
+import { ImageCard } from "@/components/custom-component/ImageCard";
 import { Button } from "@/components/ui/button";
 import { Accordion } from "@radix-ui/react-accordion";
 import {
@@ -7,7 +8,6 @@ import {
   benefits,
   members,
 } from "../constants/landingPage.constant";
-import { ImageCard } from "@/components/custom-component/ImageCard";
 
 export default function Home() {
   return (
@@ -22,8 +22,7 @@ export default function Home() {
           officiis molestiae totam, ut commodi pariatur. Non nulla harum ab ex.
         </p>
 
-        <div className="flexbox-center flex-col md:flex-row  gap-4">
-          <Button className="cta-btn">Get Started</Button>
+        <div className="flexbox-center">
           <Button className="cta-btn">Get Started</Button>
         </div>
       </section>
@@ -73,7 +72,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section-size gap-4 pb-6">
+        <section className="padding h-full gap-4 pb-6">
           <h2 className="text-bold subhero-font">Meet Our Team</h2>
           <p className="description-text sm:max-w-[80vw] mt-4">
             Meet the talented developers behind this project. Our team is
