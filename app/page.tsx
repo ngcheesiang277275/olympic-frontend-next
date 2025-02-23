@@ -14,7 +14,7 @@ export default function Home() {
     <main>
       <section className="section-size max-width flexbox-center flex-col gap-4">
         <h1 className="text-center hero-font sm:max-w-[75vw] lg:max-w-[65vw]">
-          HistoricalOlympic Data Analytics Dashboard
+          Historical Olympic Data Analytics Dashboard
         </h1>
 
         <p className="text-center description-text md:max-w-[80vw] lg:max-w-[70vw]">
@@ -41,7 +41,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="padding h-full flexbox-center flex-col gap-4 ">
+        <section className="padding h-full flexbox-center flex-col gap-4 max-width">
           <div className="bg-black w-full padding rounded-lg">
             <h2 className="text-white subhero-font text-center">
               API Endpoint
@@ -69,7 +69,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="padding h-full gap-4 pb-6">
+        <section className="padding h-full gap-4 pb-6 max-width">
           <h2 className="text-bold subhero-font">Meet Our Team</h2>
           <p className="description-text sm:max-w-[80vw] mt-4">
             Meet the talented developers behind this project. Our team is
