@@ -1,6 +1,5 @@
 "use client";
 
-import { TrendingUp } from "lucide-react";
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 
 import {
@@ -17,7 +16,6 @@ import {
   ChartLegend,
   ChartLegendContent,
   ChartTooltip,
-  ChartTooltipContent,
 } from "@/components/ui/chart";
 
 interface CustomTooltipProps {
@@ -126,7 +124,7 @@ export function StackedBarChart({
       </CardContent>
       <CardFooter className="flex-col items-start gap-2 text-sm">
         <div className="flex gap-2 font-medium leading-none">
-          {trendDescription} <TrendingUp className="h-4 w-4" />
+          {trendDescription}
         </div>
         <div className="leading-none text-muted-foreground">
           {totalDescription}

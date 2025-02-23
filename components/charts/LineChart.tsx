@@ -1,6 +1,5 @@
 "use client";
 
-import { TrendingUp } from "lucide-react";
 import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
 import {
   Card,
@@ -70,7 +69,7 @@ export function LineChartCard({
       <CardFooter className="flex-col items-start gap-2 text-sm">
         {trendingDescription && (
           <div className="flex gap-2 font-medium leading-none">
-            {trendingDescription} <TrendingUp className="h-4 w-4" />
+            {trendingDescription}
           </div>
         )}
         {totalDescription && (

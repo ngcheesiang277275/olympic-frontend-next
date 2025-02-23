@@ -16,7 +16,6 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-import { TrendingUp } from "lucide-react";
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts";
 
 interface MultiLineChartProps {
@@ -87,7 +86,6 @@ export function MultiLineChart({
           {trendingDescription && (
             <div className="flex gap-2 font-medium leading-none">
               {trendingDescription}
-              <TrendingUp className="h-4 w-4" />
             </div>
           )}
           {totalDescription && (

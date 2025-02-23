@@ -1,6 +1,5 @@
 "use client";
 
-import { TrendingDown, TrendingUp } from "lucide-react";
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 
 import {
@@ -33,7 +32,6 @@ interface VerticalBarChartProps {
   bar: BarConfig;
   trend?: {
     value: number;
-    isUp: boolean;
     text: string;
   };
   xAxisKey?: string;
@@ -92,11 +90,6 @@ export function VerticalBarChart({
         {trend && (
           <div className="flex gap-2 font-medium leading-none">
             {trend.text}
-            {trend.isUp ? (
-              <TrendingUp className="h-4 w-4" />
-            ) : (
-              <TrendingDown className="h-4 w-4" />
-            )}
           </div>
         )}
         <div className="leading-none text-muted-foreground">{footerText}</div>
