@@ -133,20 +133,11 @@ export default async function Dashboard() {
           }`}
         />
 
-        <LineChartCard
-          title={`Medal Trends of ${data.medalComparisonData.country}`}
-          description={`Year ${data.medalComparisonData.filters.years[0]} - ${
-            data.medalComparisonData.filters.years[
-              data.medalComparisonData.filters.years.length - 1
-            ]
-          }`}
-          data={data.medalComparisonData.chart_data}
-          config={{ medals: { color: medalComparisonChartConfig.medal.color } }}
-          trendingDescription={""}
-          totalDescription={`Total medals: ${data.medalComparisonData.chart_data.reduce(
-            (sum: number, item: { medals: number }) => sum + item.medals,
-            0
-          )}`}
+        <MultiLineChart
+          title="Medal Comparison"
+          description="Medal comparison of Top 5 Countries"
+          data={data.medalComparisonData.data}
+          config={medalComparisonChartConfig}
         />
       </div>
 

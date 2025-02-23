@@ -5,6 +5,7 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -20,12 +21,10 @@ import {
 interface MultiLineChartProps {
   title: string;
   description: string;
-  data: Array<{
-    xAxis: string;
-    male: number;
-    female: number;
-  }>;
+  data: any[];
   config: ChartConfig;
+  trendingDescription?: string;
+  totalDescription?: string;
 }
 
 export function MultiLineChart({
@@ -33,7 +32,11 @@ export function MultiLineChart({
   description,
   data,
   config,
+  trendingDescription,
+  totalDescription,
 }: MultiLineChartProps) {
+  const keys = Object.keys(config);
+  
   return (
     <Card>
       <CardHeader>
@@ -57,25 +60,35 @@ export function MultiLineChart({
             <YAxis tickLine={false} axisLine={false} tickMargin={8} />
             <ChartTooltip content={<ChartTooltipContent />} />
             <ChartLegend content={<ChartLegendContent />} />
-            <Line
-              type="monotone"
-              dataKey="male"
-              stroke={config.Male.color}
-              strokeWidth={2}
-              dot={false}
-              activeDot={{ r: 8 }}
-            />
-            <Line
-              type="monotone"
-              dataKey="female"
-              stroke={config.Female.color}
-              strokeWidth={2}
-              dot={false}
-              activeDot={{ r: 8 }}
-            />
+            {keys.map((key) => (
+              <Line
+                key={key}
+                type="monotone"
+                dataKey={key.toLowerCase()}
+                name={config[key].label}
+                stroke={config[key].color}
+                strokeWidth={2}
+                dot={false}
+                activeDot={{ r: 8 }}
+              />
+            ))}
           </LineChart>
         </ChartContainer>
       </CardContent>
+      {(trendingDescription || totalDescription) && (
+        <CardFooter className="flex-col items-start gap-2 text-sm">
+          {trendingDescription && (
+            <div className="flex gap-2 font-medium leading-none">
+              {trendingDescription}
+            </div>
+          )}
+          {totalDescription && (
+            <div className="leading-none text-muted-foreground">
+              {totalDescription}
+            </div>
+          )}
+        </CardFooter>
+      )}
     </Card>
   );
 }
