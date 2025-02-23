@@ -40,9 +40,9 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="padding h-full flexbox-center flex-col gap-4 max-width">
-          <div className="bg-black w-full padding rounded-lg">
-            <h2 className="text-white subhero-font text-center">
+        <section className="h-full py-10 flexbox-center flex-col gap-4 max-width">
+          <div className="bg-white w-full padding rounded-lg">
+            <h2 className="text-black subhero-font text-center">
               API Endpoint
             </h2>
             <p className="description-text text-center max-w-[80%] mx-auto my-2">

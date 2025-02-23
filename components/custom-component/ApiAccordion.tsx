@@ -18,13 +18,13 @@ export function ApiAccordion({
   return (
     <AccordionItem
       value={endpoint}
-      className="p-4 bg-[#1b1827] hover:bg-[#322d45] hover:cursor-pointer rounded-lg"
+      className="p-4 bg-secondary-color hover:bg-slate-200 hover:cursor-pointer rounded-lg"
     >
       <AccordionTrigger className="flex flex-col sm:flex-row items-start sm:items-center gap-4 w-full">
-        <div className="bg-slate-500 text-secondary-color rounded-full text-sm py-0.5 px-2">
+        <div className="bg-slate-300 text-secondary-color rounded-full text-sm py-0.5 px-2">
           {requestMethod}
         </div>
-        <p className="text-white">{endpoint}</p>
+        <p>{endpoint}</p>
       </AccordionTrigger>
       <AccordionContent className="mt-4">
         <p className="text-secondary-color">{description}</p>
