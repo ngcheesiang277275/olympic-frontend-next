@@ -19,7 +19,7 @@ export function StatCardGroup({ data }: StatCardGroupProps) {
       {data.map((item, index) => (
         <Card key={index}>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">{item.title}</CardTitle>
+            <CardTitle className="font-medium">{item.title}</CardTitle>
             {item.icon}
           </CardHeader>
           <CardContent>
