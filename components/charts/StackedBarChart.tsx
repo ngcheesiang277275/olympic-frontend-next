@@ -20,6 +20,38 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart";
 
+interface CustomTooltipProps {
+  active?: boolean;
+  payload?: Array<{
+    value: number;
+    name: string;
+    dataKey: string;
+  }>;
+  label?: string;
+}
+
+function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
+  if (!active || !payload) return null;
+
+  return (
+    <div className="rounded-lg border bg-background p-2 shadow-sm">
+      <div className="grid gap-2">
+        <div className="font-medium">{label}</div>
+        {payload.map((entry, index) => (
+          <div key={index} className="flex items-center gap-2">
+            <div
+              className="h-2 w-2 rounded-full"
+              style={{ backgroundColor: entry.color }}
+            />
+            <span className="capitalize">{entry.dataKey}: </span>
+            <span className="font-medium">{entry.value}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export function StackedBarChart({
   title,
   description,
@@ -51,9 +83,11 @@ export function StackedBarChart({
               tickLine={false}
               tickMargin={10}
               axisLine={false}
-              tickFormatter={(value) => value.slice(0, 3)}
             />
-            <ChartTooltip content={<ChartTooltipContent hideLabel />} />
+            <ChartTooltip
+              content={<CustomTooltip />}
+              cursor={{ fill: "var(--muted)" }}
+            />
             <ChartLegend content={<ChartLegendContent />} />
             {keys.map((key, index) => (
               <Bar

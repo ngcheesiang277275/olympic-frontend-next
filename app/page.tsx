@@ -1,7 +1,6 @@
 import { ApiAccordion } from "@/components/custom-component/ApiAccordion";
 import { BenefitsCard } from "@/components/custom-component/BenefitsCard";
 import { ImageCard } from "@/components/custom-component/ImageCard";
-import { Button } from "@/components/ui/button";
 import { Accordion } from "@radix-ui/react-accordion";
 import {
   apiExample,
