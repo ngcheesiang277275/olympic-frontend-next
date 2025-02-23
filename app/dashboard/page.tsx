@@ -1,18 +1,13 @@
-import { CustomPieChart } from "@/components/charts/CustomPieChart";
 import { DonutChart } from "@/components/charts/DonutChart";
 import { LineChartCard } from "@/components/charts/LineChart";
 import { StackedBarChart } from "@/components/charts/StackedBarChart";
-import { StackedChart } from "@/components/charts/StackedChart";
 import { StatCardGroup } from "@/components/charts/StatCardGroup";
 import { Calendar, Flag, Medal, Trophy, Users } from "lucide-react";
 import {
-  areaConfigs,
   browserConfig,
   browserData,
   genderChartConfig,
   medalChartConfig,
-  visitorConfig,
-  visitorData,
 } from "../../constants/chart-dummy-data.constant";
 
 export default async function Dashboard() {
@@ -144,19 +139,6 @@ export default async function Dashboard() {
       </div>
 
       <div className="child-grid">
-        <CustomPieChart
-          title="Browser Usage"
-          description="January - June 2024"
-          data={browserData}
-          // data={data.browserData}
-          config={browserConfig}
-          trend={{
-            value: 5.2,
-            isUp: true,
-            text: "Trending up by 5.2% this month",
-          }}
-        />
-
         <DonutChart
           title="Gender Distribution"
           description="Distribution of athletes by gender"
