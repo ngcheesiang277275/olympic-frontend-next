@@ -144,14 +144,17 @@ export default async function Dashboard() {
           config={medalComparisonChartConfig}
           trendingDescription={`United States leads with most total medals`}
           totalDescription={`Total medals by country: ${Object.entries(
-            data.medalComparisonData.chart_data.reduce((acc: Record<string, number>, item: Record<string, number>) => {
-              Object.keys(item).forEach((key) => {
-                if (key !== "xAxis") {
-                  acc[key] = (acc[key] || 0) + item[key];
-                }
-              });
-              return acc;
-            }, {})
+            data.medalComparisonData.chart_data.reduce(
+              (acc: Record<string, number>, item: Record<string, number>) => {
+                Object.keys(item).forEach((key) => {
+                  if (key !== "xAxis") {
+                    acc[key] = (acc[key] || 0) + item[key];
+                  }
+                });
+                return acc;
+              },
+              {}
+            )
           )
             .map(([country, total]) => `${country}: ${total}`)
             .join(", ")}`}

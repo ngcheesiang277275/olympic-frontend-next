@@ -7,7 +7,7 @@ import {
   CardContent,
   CardDescription,
   CardHeader,
-  CardTitle
+  CardTitle,
 } from "../ui/card";
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "../ui/chart";
 
@@ -24,13 +24,17 @@ export function DonutChart({
   data,
   config,
 }: DonutChartProps) {
-  const chartData = Array.isArray(data) ? data.map(item => ({
-    ...item,
-    fill: config[item.name].color
-  })) : [];
-  
-  const malePercentage = chartData.find((d) => d.name === "Male")?.percentage || 0;
-  const femalePercentage = chartData.find((d) => d.name === "Female")?.percentage || 0;
+  const chartData = Array.isArray(data)
+    ? data.map((item) => ({
+        ...item,
+        fill: config[item.name].color,
+      }))
+    : [];
+
+  const malePercentage =
+    chartData.find((d) => d.name === "Male")?.percentage || 0;
+  const femalePercentage =
+    chartData.find((d) => d.name === "Female")?.percentage || 0;
 
   return (
     <Card className="flex flex-col">
@@ -57,7 +61,11 @@ export function DonutChart({
               fill={(entry: { fill: string }) => entry.fill}
             >
               <Label
-                content={({ viewBox }: { viewBox: { cx: number; cy: number } }) =>
+                content={({
+                  viewBox,
+                }: {
+                  viewBox: { cx: number; cy: number };
+                }) =>
                   viewBox && "cx" in viewBox && "cy" in viewBox ? (
                     <text
                       x={viewBox.cx}
@@ -87,7 +95,6 @@ export function DonutChart({
           </PieChart>
         </ChartContainer>
       </CardContent>
-
     </Card>
   );
 }
