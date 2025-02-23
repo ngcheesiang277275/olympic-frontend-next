@@ -3,12 +3,12 @@
 import { TrendingUp } from "lucide-react";
 import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
 import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
 } from "../ui/card";
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "../ui/chart";
 
@@ -44,7 +44,7 @@ export function LineChartCard({
           <LineChart
             accessibilityLayer
             data={data}
-            margin={{ top: 20, left: 12, right: 12 }}
+            margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
           >
             <CartesianGrid vertical={false} />
             <XAxis
@@ -53,6 +53,8 @@ export function LineChartCard({
               axisLine={false}
               tickMargin={8}
               tickFormatter={(value) => value.toString()}
+              padding={{ left: 20, right: 20 }}
+              allowDataOverflow={true}
             />
             <ChartTooltip content={<ChartTooltipContent />} />
             <Line

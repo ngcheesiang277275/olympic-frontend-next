@@ -4,10 +4,9 @@ import { StackedBarChart } from "@/components/charts/StackedBarChart";
 import { StatCardGroup } from "@/components/charts/StatCardGroup";
 import { Calendar, Flag, Medal, Trophy, Users } from "lucide-react";
 import {
-  browserConfig,
-  browserData,
   genderChartConfig,
   medalChartConfig,
+  medalComparisonChartConfig
 } from "../../constants/chart-dummy-data.constant";
 
 export default async function Dashboard() {
@@ -129,7 +128,7 @@ export default async function Dashboard() {
             ]
           }`}
           data={data.medalComparisonData.chart_data}
-          config={medalChartConfig}
+          config={{ medals: { color: medalComparisonChartConfig.medal.color } }}
           trendingDescription={""}
           totalDescription={`Total medals: ${data.medalComparisonData.chart_data.reduce(
             (sum: number, item: { medals: number }) => sum + item.medals,

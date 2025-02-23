@@ -12,6 +12,10 @@ export const medalChartConfig = {
   bronze: { label: "Bronze", color: "#CD7F32" },
 } satisfies ChartConfig;
 
+export const medalComparisonChartConfig = {
+  medal: { label: "Medal(s)", color: "#C0C0C0" },
+} satisfies ChartConfig;
+
 export const genderChartConfig = {
   Male: {
     label: "Male",
