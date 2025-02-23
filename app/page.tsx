@@ -13,20 +13,20 @@ export default function Home() {
     <main>
       <section className="section-size max-width flexbox-center flex-col gap-4">
         <h1 className="text-center hero-font sm:max-w-[75vw] lg:max-w-[65vw]">
-          Historical Olympic Data Analytics Dashboard
+          Uncover Olympic History Like Never Before
         </h1>
 
         <p className="text-center description-text md:max-w-[80vw] lg:max-w-[70vw]">
-          Explore comprehensive historical Olympic data through our interactive
-          dashboard. Analyze medal distributions, athlete demographics, and
-          performance trends across multiple Olympic Games with ease.
+          Dive into our interactive dashboard to explore medal counts, athlete
+          stats, and performance trends across Olympic history. All in one
+          place!
         </p>
       </section>
 
       <div className="bg-secondary-color">
         <section className="padding h-full p-4 ">
           <div className="bg-white padding rounded-xl h-full max-width">
-            <h2 className="subhero-font">Why Choose Us?</h2>
+            <h2 className="subhero-font text-center">Why Choose Us?</h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-6">
               {benefits.map((item) => (
@@ -69,8 +69,8 @@ export default function Home() {
         </section>
 
         <section className="padding h-full gap-4 pb-6 max-width">
-          <h2 className="text-bold subhero-font">Meet Our Team</h2>
-          <p className="description-text sm:max-w-[80vw] mt-4">
+          <h2 className="text-bold subhero-font text-center">Meet Our Team</h2>
+          <p className="description-text sm:max-w-[80vw] mt-4 text-center">
             Meet the talented developers behind this project. Our team is
             passionate about making Olympic historical data accessible through
             modern web technologies and APIs.

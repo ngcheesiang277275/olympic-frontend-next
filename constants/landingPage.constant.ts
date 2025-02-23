@@ -6,7 +6,7 @@ interface LandingPageApiExample {
 
 interface LandingPageBenefit {
   description: string;
-  image: string;
+  image: React.ReactNode;
   title: string;
 }
 
@@ -58,19 +58,19 @@ export const benefits: LandingPageBenefit[] = [
     title: "Fast and Efficient Queries",
     description:
       "Optimized with Next.js and FastAPI to deliver historical Olympic data quickly and efficiently.",
-    image: "string",
+    image: "Trophy",
   },
   {
     title: "Data Accuracy and Integrity",
     description:
       "Our database is sourced from official Olympic records, ensuring high accuracy in historical data.",
-    image: "string",
+    image: "Calendar",
   },
   {
     title: "Developer-Friendly API",
     description:
       "Well-structured endpoints make it easy for developers to integrate Olympic data into their applications.",
-    image: "string",
+    image: "Users",
   },
 ];
 
@@ -86,6 +86,6 @@ export const members: LandingPageMember[] = [
       "Contributed to data preprocessing and backend development of the Olympic dashboard project, implementing efficient data pipelines and RESTful APIs.",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUsnoAcVxA2TRUxXw7XqDE1nCmBTt1PwbmJw&s",
-    name: "MUHAMMAD MUAZ BIN MD HAZALI",
+    name: "MUAZ HAZALI",
   },
 ];
