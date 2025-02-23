@@ -54,10 +54,10 @@ export function DonutChart({
               nameKey="name"
               innerRadius={60}
               strokeWidth={5}
-              fill={(entry) => entry.fill}
+              fill={(entry: { fill: string }) => entry.fill}
             >
               <Label
-                content={({ viewBox }) =>
+                content={({ viewBox }: { viewBox: { cx: number; cy: number } }) =>
                   viewBox && "cx" in viewBox && "cy" in viewBox ? (
                     <text
                       x={viewBox.cx}
