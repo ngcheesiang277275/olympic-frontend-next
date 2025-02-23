@@ -6,8 +6,9 @@ import { Calendar, Flag, Medal, Trophy, Users } from "lucide-react";
 import {
   genderChartConfig,
   medalChartConfig,
-  medalComparisonChartConfig
+  medalComparisonChartConfig,
 } from "../../constants/chart-dummy-data.constant";
+import { MultiLineChart } from "@/components/charts/MultiLineChart";
 
 export default async function Dashboard() {
   async function getData() {
@@ -15,6 +16,8 @@ export default async function Dashboard() {
       medalRankingResponse,
       medalComparisonResponse,
       genderStatsResponse,
+      genderTrendResponse,
+      topAthletesResponse,
       totalAthletesResponse,
       totalOlympicsResponse,
       totalMedalsResponse,
@@ -24,6 +27,8 @@ export default async function Dashboard() {
       fetch("http://127.0.0.1:8000/api/medal-ranking"),
       fetch("http://127.0.0.1:8000/api/medal-comparison?country=Malaysia"),
       fetch("http://127.0.0.1:8000/api/gender-distribution"),
+      fetch("http://127.0.0.1:8000/api/gender-trend"),
+      fetch("http://127.0.0.1:8000/api/top-athletes"),
       fetch("http://127.0.0.1:8000/api/stats/total-athletes"),
       fetch("http://127.0.0.1:8000/api/stats/total-olympics"),
       fetch("http://127.0.0.1:8000/api/stats/total-medals"),
@@ -35,6 +40,8 @@ export default async function Dashboard() {
       medalRankingData,
       medalComparisonData,
       genderStatsData,
+      genderTrendData,
+      topAthletesData,
       totalAthletes,
       totalOlympics,
       totalMedals,
@@ -44,6 +51,8 @@ export default async function Dashboard() {
       medalRankingResponse.json(),
       medalComparisonResponse.json(),
       genderStatsResponse.json(),
+      genderTrendResponse.json(),
+      topAthletesResponse.json(),
       totalAthletesResponse.json(),
       totalOlympicsResponse.json(),
       totalMedalsResponse.json(),
@@ -51,11 +60,13 @@ export default async function Dashboard() {
       totalCountriesResponse.json(),
     ]);
 
-    const genderChartData = genderStatsData.data.map((item) => ({
-      name: item.gender.charAt(0).toUpperCase() + item.gender.slice(1),
-      value: item.athletes,
-      percentage: item.percentage,
-    }));
+    const genderChartData = genderStatsData.data.map(
+      (item: { gender: string; athletes: number; percentage: number }) => ({
+        name: item.gender.charAt(0).toUpperCase() + item.gender.slice(1),
+        value: item.athletes,
+        percentage: item.percentage,
+      })
+    );
 
     const statsData = [
       {
@@ -92,6 +103,8 @@ export default async function Dashboard() {
         data: genderChartData,
         total: genderStatsData.total_athletes,
       },
+      genderTrendData,
+      topAthletesData,
       statsData,
     };
   }
@@ -138,10 +151,27 @@ export default async function Dashboard() {
       </div>
 
       <div className="child-grid">
+        <StackedBarChart
+          title="Top Athletes"
+          data={data.topAthletesData.data}
+          config={medalChartConfig}
+          trendDescription={`${data.topAthletesData.data[0].xAxis} having the most medals`}
+          totalDescription={`Total medals: ${
+            data.topAthletesData.data[0].gold +
+            data.topAthletesData.data[0].silver +
+            data.topAthletesData.data[0].bronze
+          }`}
+        />
         <DonutChart
           title="Gender Distribution"
           description="Distribution of athletes by gender"
           data={data.genderStatsData.data}
+          config={genderChartConfig}
+        />
+        <MultiLineChart
+          title="Gender Trends"
+          description="Gender trends of athletes"
+          data={data.genderTrendData.data}
           config={genderChartConfig}
         />
       </div>

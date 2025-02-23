@@ -29,7 +29,7 @@ export function StackedBarChart({
   totalDescription,
 }: {
   title: string;
-  description: string;
+  description?: string;
   data: Array<Record<string, number>>;
   config: ChartConfig;
   trendDescription: string;
