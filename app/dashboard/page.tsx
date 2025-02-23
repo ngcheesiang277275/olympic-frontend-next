@@ -184,8 +184,20 @@ export default async function Dashboard() {
           description="Gender trends of athletes"
           data={data.genderTrendData.data}
           config={genderChartConfig}
-          trendingDescription={`Female participation increased from ${data.genderTrendData.data[0].female} to ${data.genderTrendData.data[data.genderTrendData.data.length - 1].female} athletes`}
-          totalDescription={`Latest Olympics (${data.genderTrendData.data[data.genderTrendData.data.length - 1].xAxis}): ${data.genderTrendData.data[data.genderTrendData.data.length - 1].male.toLocaleString()} male and ${data.genderTrendData.data[data.genderTrendData.data.length - 1].female.toLocaleString()} female athletes`}
+          trendingDescription={`Female participation increased from ${
+            data.genderTrendData.data[0].female
+          } to ${
+            data.genderTrendData.data[data.genderTrendData.data.length - 1]
+              .female
+          } athletes`}
+          totalDescription={`Latest Olympics (${
+            data.genderTrendData.data[data.genderTrendData.data.length - 1]
+              .xAxis
+          }): ${data.genderTrendData.data[
+            data.genderTrendData.data.length - 1
+          ].male.toLocaleString()} male and ${data.genderTrendData.data[
+            data.genderTrendData.data.length - 1
+          ].female.toLocaleString()} female athletes`}
         />
       </div>
     </div>
