@@ -77,16 +77,15 @@ export const benefits: LandingPageBenefit[] = [
 export const members: LandingPageMember[] = [
   {
     description:
-      "lorem lorem lorem lorem lorem loremlorem lorem loreml orem  123 12 lorem lorem",
-    image:
-      "https://www.google.com/url?sa=i&url=https%3A%2F%2Fpotawatomizoo.org%2Fanimal%2Fcapybara%2F&psig=AOvVaw0Y6YhK4zGKu1pzPicwTSgL&ust=1740296956187000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCJidnMDl1osDFQAAAAAdAAAAABAE",
+      "Contributed to frontend development, UI/UX design and API development of the Olympic dashboard project, creating responsive interfaces and implementing RESTful endpoints.",
+    image: "https://csland.me/static/media/propic2.f333cb67e19b10f0a21e.jpg",
     name: "NG CHEE SIANG",
   },
   {
     description:
-      "lorem lorem lorem lorem lorem loremlorem lorem loreml orem lorem lorem xxxad2323",
+      "Contributed to data preprocessing and backend development of the Olympic dashboard project, implementing efficient data pipelines and RESTful APIs.",
     image:
-      "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bonecollection.com%2Fen%2Fblog%2Fitem%2F3433-attention-capybara-fans&psig=AOvVaw0Y6YhK4zGKu1pzPicwTSgL&ust=1740296956187000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCJidnMDl1osDFQAAAAAdAAAAABAJ",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUsnoAcVxA2TRUxXw7XqDE1nCmBTt1PwbmJw&s",
     name: "MUHAMMAD MUAZ BIN MD HAZALI",
   },
 ];
