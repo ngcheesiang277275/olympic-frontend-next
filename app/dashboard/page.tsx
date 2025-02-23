@@ -134,10 +134,18 @@ export default async function Dashboard() {
         />
 
         <MultiLineChart
-          title="Medal Comparison"
-          description="Medal comparison of Top 5 Countries"
-          data={data.medalComparisonData.data}
+          title={`Medal Trends of ${data.medalComparisonData.country}`}
+          description={`Year ${data.medalComparisonData.filters.years[0]} - ${
+            data.medalComparisonData.filters.years[
+              data.medalComparisonData.filters.years.length - 1
+            ]
+          }`}
+          data={data.medalComparisonData.chart_data}
           config={medalComparisonChartConfig}
+          totalDescription={`Total medals: ${data.medalComparisonData.chart_data.reduce(
+            (sum: number, item: { medals: number }) => sum + item.medals,
+            0
+          )}`}
         />
       </div>
 

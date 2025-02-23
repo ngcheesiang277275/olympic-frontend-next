@@ -12,6 +12,14 @@ export const medalChartConfig = {
   bronze: { label: "Bronze", color: "#CD7F32" },
 } satisfies ChartConfig;
 
+export const medalComparisonChartConfig = {
+  "United States": { label: "United States", color: "#1E88E5" },
+  "Soviet Union": { label: "Soviet Union", color: "#D81B60" },
+  Germany: { label: "Germany", color: "#FFC107" },
+  "Great Britain": { label: "Great Britain", color: "#004D40" },
+  France: { label: "France", color: "#7B1FA2" },
+} satisfies ChartConfig;
+
 export const genderChartConfig = {
   Male: {
     label: "Male",
@@ -19,29 +27,6 @@ export const genderChartConfig = {
   },
   Female: {
     label: "Female",
-    color: "#7D7D7D",
-  },
-} satisfies ChartConfig;
-
-export const medalComparisonChartConfig = {
-  "United States": {
-    label: "United States",
-    color: "#DBDBDB",
-  },
-  "Soviet Union": {
-    label: "Soviet Union",
-    color: "#7D7D7D",
-  },
-  Germany: {
-    label: "Germany",
-    color: "#7D7D7D",
-  },
-  "Great Britain": {
-    label: "Great Britain",
-    color: "#7D7D7D",
-  },
-  France: {
-    label: "France",
     color: "#7D7D7D",
   },
 } satisfies ChartConfig;
