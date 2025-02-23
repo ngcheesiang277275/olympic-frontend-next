@@ -19,37 +19,30 @@ interface LandingPageMember {
 export const apiExample: LandingPageApiExample[] = [
   {
     description:
-      "Get the medal rankings for each country in different Olympic years.",
-    endpoint: "/api/medal",
+      "Get the medal rankings for top countries, showing gold, silver, and bronze medals.",
+    endpoint: "/api/medal-ranking",
     requestMethod: "GET",
   },
   {
-    description: "Compare medal counts across different Olympic years.",
-    endpoint: "/api/medal/comparison",
-    requestMethod: "GET",
-  },
-  {
-    description:
-      "Retrieve an athlete's performance records, including times, scores, and achievements.",
-    endpoint: "/api/athlete/performance",
+    description: "Compare medal performance over time for top 5 countries.",
+    endpoint: "/api/medal-comparison",
     requestMethod: "GET",
   },
   {
     description:
-      "Get an athlete's Olympic experience, including participation history and medals won.",
-    endpoint: "/api/athlete/experience",
+      "Get the distribution of male and female athletes across all Olympics.",
+    endpoint: "/api/gender-distribution",
+    requestMethod: "GET",
+  },
+  {
+    description: "Get the top athletes ranked by their total medal count.",
+    endpoint: "/api/top-athletes",
     requestMethod: "GET",
   },
   {
     description:
-      "Get details of Olympic events, including schedules, sports categories, and results.",
-    endpoint: "/api/event",
-    requestMethod: "GET",
-  },
-  {
-    description:
-      "Retrieve information about the host country for each Olympic edition.",
-    endpoint: "/api/host-country",
+      "Track the historical trend of male and female athlete participation.",
+    endpoint: "/api/gender-trend",
     requestMethod: "GET",
   },
 ];
