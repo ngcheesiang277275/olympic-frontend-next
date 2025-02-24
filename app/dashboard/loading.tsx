@@ -2,7 +2,7 @@ import { SkeletonChart } from "@/components/charts/SkeletonChart";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 
-const Loading = () => {
+export default function Loading() {
   return (
     <div className="parent-grid">
       <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
@@ -23,15 +23,14 @@ const Loading = () => {
         ))}
       </div>
       <div className="child-grid">
-        <SkeletonChart></SkeletonChart>
-        <SkeletonChart></SkeletonChart>
+        <SkeletonChart />
+        <SkeletonChart />
       </div>
       <div className="child-grid">
-        <SkeletonChart></SkeletonChart>
-        <SkeletonChart></SkeletonChart>
+        <SkeletonChart />
+        <SkeletonChart />
+        <SkeletonChart />
       </div>
     </div>
   );
-};
-
-export default Loading;
+}

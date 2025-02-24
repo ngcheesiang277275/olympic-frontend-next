@@ -3,23 +3,14 @@ import { MultiLineChart } from "@/components/charts/MultiLineChart";
 import { StackedBarChart } from "@/components/charts/StackedBarChart";
 import { StatCardGroup } from "@/components/charts/StatCardGroup";
 import { Calendar, Medal, Trophy, Users } from "lucide-react";
-import { Metadata } from "next";
 import {
   genderChartConfig,
   medalChartConfig,
   medalComparisonChartConfig,
 } from "../../constants/chart-dummy-data.constant";
 
-export const metadata: Metadata = {
-  title: "Olympic Dashboard | Interactive Olympic Data Visualization",
-  description:
-    "Explore Olympic data through interactive charts and visualizations. View medal rankings, gender distribution, and historical trends in Olympic sports.",
-  keywords:
-    "Olympic dashboard, medal rankings, gender distribution, Olympic visualization, sports statistics",
-};
-
-export default async function Dashboard() {
-  async function getData() {
+async function getData() {
+  try {
     const [
       medalRankingResponse,
       medalComparisonResponse,
@@ -31,15 +22,27 @@ export default async function Dashboard() {
       totalMedalsResponse,
       totalSportsResponse,
     ] = await Promise.all([
-      fetch("http://127.0.0.1:8000/api/medal-ranking"),
-      fetch("http://127.0.0.1:8000/api/medal-comparison?country=Malaysia"),
-      fetch("http://127.0.0.1:8000/api/gender-distribution"),
-      fetch("http://127.0.0.1:8000/api/gender-trend"),
-      fetch("http://127.0.0.1:8000/api/top-athletes"),
-      fetch("http://127.0.0.1:8000/api/stats/total-athletes"),
-      fetch("http://127.0.0.1:8000/api/stats/total-olympics"),
-      fetch("http://127.0.0.1:8000/api/stats/total-medals"),
-      fetch("http://127.0.0.1:8000/api/stats/total-sports"),
+      fetch("http://127.0.0.1:8000/api/medal-ranking", { cache: "no-store" }),
+      fetch("http://127.0.0.1:8000/api/medal-comparison?country=Malaysia", {
+        cache: "no-store",
+      }),
+      fetch("http://127.0.0.1:8000/api/gender-distribution", {
+        cache: "no-store",
+      }),
+      fetch("http://127.0.0.1:8000/api/gender-trend", { cache: "no-store" }),
+      fetch("http://127.0.0.1:8000/api/top-athletes", { cache: "no-store" }),
+      fetch("http://127.0.0.1:8000/api/stats/total-athletes", {
+        cache: "no-store",
+      }),
+      fetch("http://127.0.0.1:8000/api/stats/total-olympics", {
+        cache: "no-store",
+      }),
+      fetch("http://127.0.0.1:8000/api/stats/total-medals", {
+        cache: "no-store",
+      }),
+      fetch("http://127.0.0.1:8000/api/stats/total-sports", {
+        cache: "no-store",
+      }),
     ]);
 
     const [
@@ -106,8 +109,12 @@ export default async function Dashboard() {
       topAthletesData,
       statsData,
     };
+  } catch (error) {
+    throw new Error("Failed to fetch dashboard data");
   }
+}
 
+export default async function Dashboard() {
   const data = await getData();
 
   return (
@@ -130,7 +137,6 @@ export default async function Dashboard() {
             data.medalRankingData.data[0].bronze
           }`}
         />
-
         <MultiLineChart
           title="Medal Trends of Top 5 Countries"
           description={`Year ${data.medalComparisonData.filters.years[0]} - ${
@@ -140,7 +146,7 @@ export default async function Dashboard() {
           }`}
           data={data.medalComparisonData.chart_data}
           config={medalComparisonChartConfig}
-          trendingDescription={`United States leads with most total medals`}
+          trendingDescription="United States leads with most total medals"
           totalDescription={`Total medals by country: ${Object.entries(
             data.medalComparisonData.chart_data.reduce(
               (acc: Record<string, number>, item: Record<string, number>) => {
